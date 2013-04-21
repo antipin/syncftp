@@ -1,0 +1,16 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Alexandr Shlygin -- Idea, backend developer -- http://twitter.com/me_ulele
+    Alexandr Antipin -- Frontend developer -- http://twitter.com/stutzer
+
+# THANKS
+
+    Alexandra Pozdnyakova -- Frontent development inspiration -- http://twitter.com/ylibatsya
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    Normalize.css, jQuery, Modernizr
