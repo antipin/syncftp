@@ -1,0 +1,37 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html,
+button,
+input,
+select,
+textarea {
+  color: #222;
+}
+/* #4183C4 */
+html,
+body {
+  height: 100%;
+}
+body {
+  min-width: 960px;
+  position: relative;
+  font-size: 1em;
+  line-height: 1.4;
+}
+section {
+  padding: 30px 0;
+}
+.section-title {
+  text-align: center;
+  font-weight: lighter;
+  font-size: 33px;
+  margin: 0 0 40px 0;
+}

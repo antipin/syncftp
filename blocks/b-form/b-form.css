@@ -1,0 +1,60 @@
+.b-form {
+  position: absolute;
+  z-index: 2;
+  top: 45%;
+  left: 50%;
+  height: 100px;
+  margin-top: -30px;
+  margin-left: -150px;
+}
+.b-form__item {
+  margin-bottom: 15px;
+}
+.b-form__item input,
+.b-form__item textarea,
+.b-form__item button {
+  border: 0;
+}
+.b-form__input_type_email,
+.b-form__input_type_submit {
+  padding: 10px 20px;
+  width: 300px;
+  border: 0;
+  display: block;
+  border-radius: 4px;
+}
+.b-form__input_type_email {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.b-form__input_type_email,
+:focus {
+  outline: 0;
+  box-shadow: 0 0 20px #00d3ff;
+}
+.b-form__input_type_submit {
+  background-color: #5c8d17;
+  color: #FFF;
+  width: 340px;
+}
+.b-form__input_type_description {
+  margin-top: 10px;
+  text-align: right;
+  font-size: 11px;
+  color: #FFF;
+}
+.b-form__stay-tuned {
+  display: block;
+  position: absolute;
+  text-indent: -9999px;
+  top: -110px;
+  right: -80px;
+  width: 194px;
+  height: 136px;
+  background-position: -160px 0;
+}
+.b-form__type_description {
+  color: #FFF;
+  font-size: 11px;
+  text-align: right;
+}

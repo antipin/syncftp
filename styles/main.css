@@ -18,15 +18,118 @@ textarea {
     color: #222;
 }
 
+/* #4183C4 */
+
+html, body {
+    height: 100%;
+}
+
 body {
+    min-width: 960px;
+    position: relative;
     font-size: 1em;
     line-height: 1.4;
+    background-color: #F5F5F5;
 }
 
 #page {
-    margin: 2em auto;
-    width: 960px;
+    margin: 0 12%;
+    padding: 2em 0;
 }
+
+#page-header {
+    border-bottom: 1px solid #EEE;
+    margin-bottom: 2em;
+}
+
+#page-header h1, #page-header h2 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#page-header h1 {
+    width: 25%;
+    white-space: nowrap;
+}
+
+#page-header h2 {
+    width: 70%;
+    color: #999;
+}
+
+
+
+ul.layout-list, ul.layout-list li {
+    list-style: none; list-style-image: none;
+    padding: 0; margin: 0;
+}
+
+.side-panel {
+    position: fixed;
+    width: 80px;
+    top: 0;
+    bottom: 0;
+    background-color: #EEE;
+    border-color: #DDD;
+}
+
+.side-panel-left {
+    left: 0;
+    border-right: 1px solid #DDD;
+}
+
+.side-panel-right {
+    right: 0;
+    border-left: 1px solid #DDD;
+}
+
+.side-panel .tech-list {
+    position: absolute;
+    margin-top: -170px;
+    top: 50%;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.side-panel .tech-list li {
+    color: #999;
+    text-shadow: 1px 1px 0 #FFF;
+    padding: 20px 10px;
+    border-top: 1px solid #F5F5F5;
+    border-bottom: 1px solid #DDD;
+}
+
+
+/*
+ * Form email-trap
+ */
+
+.email-form .email-field {
+    border-color: transparent;
+    font-size: 17px;
+    padding-bottom: 11px;
+    padding-top: 11px;
+    text-indent: 3px;
+    width: 299px;
+}
+
+.email-form .email-field:focus + .email-field-icon {
+    color: #1abc9c;
+}
+
+.email-form .email-field-icon {
+    color: #bfc9ca;
+    font-size: 16px;
+    position: absolute;
+    right: 13px;
+    top: 14px;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    -webkit-backface-visibility: hidden;
+}
+
 
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
