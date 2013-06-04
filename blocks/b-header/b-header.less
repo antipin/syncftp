@@ -1,6 +1,26 @@
 .b-header {
-  background: url("/blocks/b-header/img/bg-random-squares.png") repeat-x 0 0;
+  background-image: url("/blocks/b-header/img/bg-logo.png");
+  background-repeat: no-repeat;
+  background-color: #5c8d17;
   padding: 20px 0;
+}
+
+@media (min-width: 1200px) {
+  .b-header {
+    background-position: 8% 0;
+  }
+}
+
+@media (min-width: 980px) and (max-width: 1199px) {
+  .b-header {
+    background-position: -5% 0;
+  }
+}
+
+@media (max-width: 980px) {
+  .b-header {
+    background-position: -15% 0;
+  }
 }
 
 .b-header__logo {
