@@ -1,11 +1,9 @@
-.b-sync-scheme {}
-
 .b-sync-scheme__image {
   list-style: none;
   list-style-image: none;
   margin: 0;
   padding: 0;
-  background: url("/blocks/b-sync-scheme/img/sync-scheme.png") no-repeat 50% 50%;
+  background: url("/pages/index/blocks/b-sync-scheme/img/sync-scheme.png") no-repeat 50% 50%;
   width: 100%;
   height: 260px;
   text-indent: -9999px;

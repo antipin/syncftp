@@ -1,27 +1,22 @@
 .b-promo {
-
-  background: url("/blocks/b-promo/img/bg-squary.png") repeat 0 0;
-
-  h2, p {
-    color: #FFF;
-  }
-
+  background: url("/pages/index/blocks/b-promo/img/bg-squary.png") repeat 0 0;
 }
-
-.b-promo__left-sidebar, .b-promo__right-sidebar {
+.b-promo h2,
+.b-promo p {
+  color: #FFF;
+}
+.b-promo__left-sidebar,
+.b-promo__right-sidebar {
   height: 350px;
 }
-
-  .b-promo__left-sidebar {
+.b-promo__left-sidebar {
   position: relative;
 }
-
 .b-promo__slogan {
   padding: 60px 90px 0 0;
   position: relative;
   z-index: 2;
 }
-
 .b-promo__slogan-arrow {
   display: block;
   position: absolute;
@@ -30,10 +25,9 @@
   right: 0;
   height: 350px;
   width: 238px;
-  background: url("/blocks/b-promo/img/arrow-glow.png") no-repeat 0 0;
+  background: url("/pages/index/blocks/b-promo/img/arrow-glow.png") no-repeat 0 0;
   z-index: 0;
 }
-
 .b-promo__right-sidebar {
   position: relative;
 }
