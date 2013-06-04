@@ -271,7 +271,6 @@ section {
   padding: 5px;
   border: 1px dotted #666;
   background-color: #aeeee8;
-  margin-bottom: 5px;
 }
 /* Sprites */
 .s-no {
@@ -335,7 +334,7 @@ section {
   float: right;
   vertical-align: middle;
 }
-.b-nav__item {
+.b-nav-item {
   display: inline-block;
   background-color: rgba(0, 0, 0, 0.2);
   margin-left: 1em;
@@ -345,11 +344,11 @@ section {
   text-decoration: none;
   font-size: 13px;
 }
-.b-nav__item:hover {
+.b-nav-item:hover {
   color: #FFF;
   background-color: rgba(255, 255, 255, 0.2);
 }
-.b-nav__item_type_accent {
+.b-nav-item_type_accent {
   background-color: transparent;
   font-size: 20px;
   text-decoration: underline;

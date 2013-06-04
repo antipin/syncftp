@@ -1,0 +1,1 @@
+<a href="<?= $block["href"] ?>" class="<?= $block["block"] ?>"><?= $block["content"] ?></a>

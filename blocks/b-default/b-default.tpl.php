@@ -1,1 +1,4 @@
-<div class="b-default <?= $block["block"]?>"><?= $block["content"] ?></div>
+<?php
+    $tag = isset($block["tag"]) ? $block["tag"] : "div";
+?>
+<<?= $tag ?> class="<?= $block["block"]?>"><?= $block["content"] ?></<?= $tag ?>>

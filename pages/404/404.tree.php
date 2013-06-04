@@ -13,23 +13,15 @@ return array(
                     "block" => "b-header",
                     "content" => array(
                         "block" => "b-nav",
+                        "content" => include(DIR_BLOCKS . "/b-nav/b-nav.tree.php") // todo: сделать поиск автоматическим
                     ),
                 ),
+
                 array(
-                    "block" => "b-promo",
-                    "content" => array(
-                        "block" => "b-email-trap"
-                    ),
+                    "block" => "b-body",
+                    "content" => "404. Page not found"
                 ),
-                array(
-                    "block" => "b-sync-scheme"
-                ),
-                array(
-                    "block" => "b-features"
-                ),
-                array(
-                    "block" => "b-usecases"
-                ),
+
                 array(
                     "block" => "b-footer"
                 ),

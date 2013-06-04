@@ -2,11 +2,14 @@
 
 class Page {
 
+    const BLOCK_DEFAULT_TPL = "b-default";
+    const BLOCK_TPL_EXTENSION = ".tpl.php";
+
     private $_name = "";
     private $_tree = array();
     private $_blocks = array();
     private $_headers = array();
-    
+
 
     function __construct($pageName, $pageTree) {
 
@@ -55,12 +58,16 @@ class Page {
 
         // Шаблон для блока существует
         if (array_key_exists($block["block"], $page->_blocks)) {
-            $blockTplPath = $page->_blocks[$block["block"]] . "/" . $block["block"] . ".tpl.php";
+            $blockTplPath = $page->_blocks[$block["block"]] . "/" . $block["block"] . self::BLOCK_TPL_EXTENSION;
         }
 
         // Шаблон для блока не найден
         if (!file_exists($blockTplPath)) {
-            $blockTplPath = DEFAULT_BLOCK_TPL;
+            $blockTplPath = implode("/", array(
+                DIR_BLOCKS,
+                self::BLOCK_DEFAULT_TPL,
+                self::BLOCK_DEFAULT_TPL . ".tpl.php",
+            ));
         }
 
         ob_start();
@@ -82,11 +89,7 @@ class Page {
                     $node["_build"] .= $this->_process_node($_node);
                 }
 
-                $tplData = array(
-                    "block" => $node["block"],
-                    "content" => $node["_build"]
-                );
-                $node["_build"] = $this->_build_node_content($tplData);
+                $node["_build"] = $this->_build_node_content($this->_prepare_tpl_var($node));
 
                 if ($node["parent"]) {
                     return $this->_process_node($node["parent"]);
@@ -100,17 +103,21 @@ class Page {
             } else {
                 $node["_build"] = $node["content"]["_build"];
             }
-            $tplData = array(
-                "block" => $node["block"],
-                "content" => $node["_build"]
-            );
-            $node["_build"] = $this->_build_node_content($tplData);
+            $node["_build"] = $this->_build_node_content($this->_prepare_tpl_var($node));
             if ($node["parent"]) {
                 return $this->_process_node($node["parent"]);
             } else {
                 return $node["_build"];
             }
         }
+    }
+
+
+    private function _prepare_tpl_var($node) {
+        $block = $node;
+        unset($block["_build"]);
+        $block["content"] = $node["_build"];
+        return $block;
     }
 
 
