@@ -35,3 +35,8 @@ section {
   font-size: 33px;
   margin: 0 0 40px 0;
 }
+.b-default {
+  padding: 5px;
+  border: 1px dotted #666;
+  background-color: #aeeee8;
+}
