@@ -1,4 +1,5 @@
-<nav class="b-nav">
+<nav class="<?= $block["block"] ?>">
+    <?= $block["content"] ?>
 <!--
     <a class="b-nav__item" href="/about">About</a>
     <a class="b-nav__item" href="/partners">Partners</a>

@@ -1,4 +1,4 @@
-<header class="b-header">
+<header class="<?= $block["block"] ?>">
     <div class="container">
         <div class="row">
             <div class="span12">
@@ -7,7 +7,7 @@
                     <a class="s-no" href="/" title="Sync FTP to FTP directly">Sync FTP to FTP directly</a>
                 </h1>
 
-                <? block("b-nav"); ?>
+                <?= $block["content"] ?>
 
             </div>
         </div>
