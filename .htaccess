@@ -310,6 +310,18 @@ AddDefaultCharset utf-8
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Pass all requests not referring directly to files in the filesystem to
+# index.php. Clean URLs are handled in drupal_environment_initialize().
+
+<IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !=/favicon.ico
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Block access to backup and source files.
 # These files may be left by some text editors and can pose a great security
 # danger when anyone has access to them.
