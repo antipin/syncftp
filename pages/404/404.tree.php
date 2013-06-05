@@ -18,7 +18,7 @@ return array(
                 ),
 
                 array(
-                    "block" => "b-body",
+                    "block" => "b-section",
                     "content" => "404. Page not found"
                 ),
 

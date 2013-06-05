@@ -12,8 +12,14 @@ return array(
         ),
 
         array(
-            "block" => "b-body",
-            "content" => "Partners"
+            "block" => "b-title",
+            "title" => "Partnership",
+            "content" => "We are looking forward for partnership with ISP and hosting providers.",
+        ),
+
+        array(
+            "block" => "b-section",
+            "content" => "Our service is definitely built upon high-quality servers and broadband internet, so if you would like to have your company logo to be proudly pinned on the service web pages, please feel free to contact us on that matter."
         ),
 
         array(

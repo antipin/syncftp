@@ -12,24 +12,19 @@ return array(
         ),
 
         array(
-            "block" => "b-body",
+            "block" => "b-promo",
             "content" => array(
-                array(
-                    "block" => "b-promo",
-                    "content" => array(
-                        "block" => "b-email-trap"
-                    ),
-                ),
-                array(
-                    "block" => "b-sync-scheme"
-                ),
-                array(
-                    "block" => "b-features"
-                ),
-                array(
-                    "block" => "b-usecases"
-                ),
+                "block" => "b-email-trap"
             ),
+        ),
+        array(
+            "block" => "b-sync-scheme"
+        ),
+        array(
+            "block" => "b-features"
+        ),
+        array(
+            "block" => "b-usecases"
         ),
 
         array(
