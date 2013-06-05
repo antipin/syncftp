@@ -9,7 +9,7 @@ foreach($routes as $request => $route) {
     if (!$route["exclude-from-sitemap"]) {
         $sitemapRoutes[] = array(
             "block" => "b-sitemap-url",
-            "content" => $_SERVER['HTTP_HOST'] . "/" . $request . "/",
+            "content" => "http://" . $_SERVER['HTTP_HOST'] . "/" . $request . "/",
             "changefreq" => "monthly"
         );
     }
