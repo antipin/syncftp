@@ -2,6 +2,12 @@
 return array(
     array(
         "block" => "b-nav-item",
+        "content" => "FTP to FTP",
+        "tag" => "a",
+        "href" => "ftp-to-ftp/"
+    ),
+    array(
+        "block" => "b-nav-item",
         "content" => "Partnership",
         "tag" => "a",
         "href" => "partners/"
@@ -11,11 +17,5 @@ return array(
         "content" => "Contact us",
         "tag" => "a",
         "href" => "contact-us/"
-    ),
-    array(
-        "block" => "b-nav-item",
-        "content" => "FTP to FTP",
-        "tag" => "a",
-        "href" => "ftp-to-ftp/"
     )
 );
