@@ -14,17 +14,17 @@
     <meta name="description" content="Direct fast data transfer between remote servers. FTP to FTP transfer.">
     <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="styles/all.css">
+    <link rel="stylesheet" href="/styles/all.css">
 
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body class="<?= $block["block"]?>">
 
     <?= $block["content"] ?>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="js/plugins.js"></script>
+<script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/js/plugins.js"></script>
 
 <script src="/pages/index/blocks/b-email-trap/b-email-trap.js"></script>
 

@@ -4,18 +4,18 @@ return array(
         "block" => "b-nav-item",
         "content" => "Partnership",
         "tag" => "a",
-        "href" => "partners"
+        "href" => "partners/"
     ),
     array(
         "block" => "b-nav-item",
         "content" => "Contact us",
         "tag" => "a",
-        "href" => "contact-us"
+        "href" => "contact-us/"
     ),
     array(
         "block" => "b-nav-item",
         "content" => "FTP to FTP",
         "tag" => "a",
-        "href" => "ftp-to-ftp"
+        "href" => "ftp-to-ftp/"
     )
 );
