@@ -7,13 +7,14 @@ class Router {
     const PAGE_404 = "404";
 
     private $_routes = array();
+    private $_route = array();
     private $_request = "";
     private $_pageName = "";
     private $_pageDeclarationPath = "";
 
     public function __construct() {
 
-        $this->_routes = include("routes.php");
+        $this->_routes = include("routes.inc.php");
 
         $this->_request = $this->_get_request();
 
@@ -23,8 +24,8 @@ class Router {
     /**
      * Возвращает машинное имя страницы
      */
-    public function get_page_name() {
-        return $this->_pageName;
+    public function get_route() {
+        return $this->_route;
     }
 
     /**
@@ -53,24 +54,29 @@ class Router {
     private function _get_page_declaration_path() {
 
         if (array_key_exists($this->_request, $this->_routes)) {
-            $pageName = $this->_request;
+            $this->_route = $this->_routes[$this->_request];
         }
         else {
-            $pageName = self::PAGE_404;
+            $this->_route = $this->_routes[self::PAGE_404];
         }
 
-        $pageDeclarationPath = implode("/", array(
+        // Расширяем route значениями по умолчанию
+        $this->_route["request"] = $this->_request;
+        if (!isset($this->_route["declaration-dir"])) $this->_route["declaration-dir"] = $this->_request;
+        if (!isset($this->_route["declaration"])) $this->_route["declaration"] = $this->_request . self::PAGE_DECLARATION_EXTENSION;
+
+        $this->_route["declaration-path"] = implode("/", array(
             DIR_PAGES,
-            $pageName,
-            $pageName . self::PAGE_DECLARATION_EXTENSION
+            $this->_route["declaration-dir"],
+            $this->_route["declaration"],
         ));
 
-        if (file_exists($pageDeclarationPath)) {
-            $this->_pageName = $pageName;
-            return $pageDeclarationPath;
+        if (file_exists($this->_route["declaration-path"])) {
+            $this->_pageName = $this->_route["request"];
+            return $this->_route["declaration-path"];
         }
         else {
-            throw new Exception("Tree declaration for route $pageName not found.");
+            throw new Exception("Tree declaration for route $this->_pageName not found.");
         }
     }
 

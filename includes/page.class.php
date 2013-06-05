@@ -5,15 +5,15 @@ class Page {
     const BLOCK_DEFAULT_TPL = "b-default";
     const BLOCK_TPL_EXTENSION = ".tpl.php";
 
-    private $_name = "";
+    private $_route = array();
     private $_tree = array();
     private $_blocks = array();
     private $_headers = array();
 
 
-    function __construct($pageName, $pageTree) {
+    function __construct($route, $pageTree) {
 
-        $this->_name = $pageName;
+        $this->_route = $route;
 
         // В декларации станицы могут быть определены HTTP заголовки
         if (isset($pageTree["headers"])) {
@@ -54,30 +54,46 @@ class Page {
 
     private function _build_node_content($block) {
 
-        global $page;
+        if (isset($block["block"])) {
+            // Шаблон для блока существует
+            if (array_key_exists($block["block"], $this->_blocks)) {
+                $blockTplPath = $this->_blocks[$block["block"]] . "/" . $block["block"] . self::BLOCK_TPL_EXTENSION;
+            }
 
-        // Шаблон для блока существует
-        if (array_key_exists($block["block"], $page->_blocks)) {
-            $blockTplPath = $page->_blocks[$block["block"]] . "/" . $block["block"] . self::BLOCK_TPL_EXTENSION;
+            // Шаблон для блока не найден
+            if (!file_exists($blockTplPath)) {
+                $blockTplPath = implode("/", array(
+                    DIR_BLOCKS,
+                    self::BLOCK_DEFAULT_TPL,
+                    self::BLOCK_DEFAULT_TPL . ".tpl.php",
+                ));
+            }
+
+
+            ob_start();
+            include $blockTplPath;
+            $output = ob_get_clean();
+        }
+        else {
+            $output = $block["content"];
         }
 
-        // Шаблон для блока не найден
-        if (!file_exists($blockTplPath)) {
-            $blockTplPath = implode("/", array(
-                DIR_BLOCKS,
-                self::BLOCK_DEFAULT_TPL,
-                self::BLOCK_DEFAULT_TPL . ".tpl.php",
-            ));
-        }
-
-        ob_start();
-        include $blockTplPath;
-        return ob_get_clean();
+        return $output;
     }
 
 
 
     private function _process_node(&$node) {
+
+        $isNodeString = is_string($node);
+        $isNodeArrayOfNodes = is_array($node) && !is_assoc($node);
+
+        // Нода является строкой
+        if ($isNodeString || $isNodeArrayOfNodes) {
+            $node = array(
+                "content" => $node
+            );
+        }
 
         if (isset($node["content"]) && is_array($node["content"]) && !isset($node["content"]["_build"])) {
             if (is_assoc($node["content"])) {
@@ -86,7 +102,7 @@ class Page {
             }
             else {
                 foreach($node["content"] as &$_node) {
-                    $node["_build"] .= $this->_process_node($_node);
+                    $node["_build"] .= $this->_process_node($_node) . "\n";
                 }
 
                 $node["_build"] = $this->_build_node_content($this->_prepare_tpl_var($node));
@@ -152,7 +168,7 @@ class Page {
     private function _get_blocks_destinations() {
         $pageBlocksDir = implode("/", array(
             DIR_PAGES,
-            $this->_name,
+            $this->_route["declaration-dir"],
             DIR_BLOCKS
         ));
         return array(DIR_BLOCKS, $pageBlocksDir);
