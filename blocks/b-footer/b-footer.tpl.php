@@ -1,4 +1,4 @@
-<footer <?= $block["block"] ?>>
+<footer class="<?= $block["block"] ?>">
     <div class="container">
         <div class="row">
             <?= $block["content"] ?>

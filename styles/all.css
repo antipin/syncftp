@@ -1289,7 +1289,7 @@ textarea {
 /* #4183C4 */
 html,
 body {
-  height: 100%;
+  min-height: 100%;
 }
 body {
   min-width: 960px;
@@ -1304,7 +1304,6 @@ section {
   text-align: center;
   font-weight: lighter;
   font-size: 33px;
-  margin: 0 0 40px 0;
 }
 .b-default {
   padding: 5px;
@@ -1323,7 +1322,7 @@ section {
   position: relative;
   font-size: 1em;
   line-height: 1.4;
-  background-color: #F5F5F5;
+  background-color: #F8F8F8;
 }
 .b-header {
   background-image: url("/blocks/b-header/img/bg-logo.png");
@@ -1359,10 +1358,20 @@ section {
   height: 29px;
   overflow: hidden;
 }
+.b-title {
+  background-color: #242b33;
+  color: #FFF;
+}
+.b-title h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.b-title .b-title__teaser {
+  color: #c5c9cf;
+  margin-top: 0.7em;
+}
 .b-promo {
   background: #242b33;
-  /* url("/pages/index/blocks/b-promo/img/bg-squary.png") repeat 0 0; */
-
 }
 .b-promo h2,
 .b-promo p {
@@ -1571,9 +1580,8 @@ section {
 .b-footer {
   padding: 20px 0;
   background-color: #242b33;
-  _background-color: #b4c3cb;
 }
 .copyright {
-  font-weight: bold;
+  font-size: 11px;
   color: #999;
 }
