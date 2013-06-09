@@ -29,13 +29,12 @@ $usecases = array(
             <div class="span12">
 
                 <h2 class="b-usecases__title section-title">Usage scenarios</h2>
-
-                <ul class="b-usecases__content row">
+                <ul class="b-usecases__content">
                     <?php foreach($usecases as $usecase) : ?>
-                    <li class="b-usecases__item">
-                        <h3 class="b-usecases__item-title"><?= $usecase["title"]; ?></h3>
-                        <div class="b-usecases__item-content"><?= $usecase["content"]; ?></div>
-                    </li>
+                        <li class="b-usecases__item">
+                            <h3 class="b-usecases__item-title"><?= $usecase["title"]; ?></h3>
+                            <div class="b-usecases__item-content"><?= $usecase["content"]; ?></div>
+                        </li>
                     <?php endforeach; ?>
                 </ul>
 
