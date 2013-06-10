@@ -1370,6 +1370,19 @@ section {
   color: #c5c9cf;
   margin-top: 0.7em;
 }
+.b-list {
+  margin: 0.5em 0;
+  padding: 0 0 0 2em;
+}
+.b-list li {
+  margin: 0.5em 0;
+  padding: 0 0 0 20px;
+  list-style-type: none;
+  text-indent: -1.24em;
+}
+.b-list li:before {
+  content: '\2014\a0';
+}
 .b-promo {
   background: #242b33;
 }
@@ -1574,8 +1587,26 @@ section {
 .b-features__item-icon_type_calendar {
   background-position: 0 -434px;
 }
-.b-usecases__title {
-  text-align: left;
+.b-usecases__content,
+.b-usecases__item {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.b-usecases__item {
+  margin-bottom: 2em;
+}
+.b-usecases__item-title,
+.b-usecases__item-content {
+  display: inline-block;
+  vertical-align: top;
+}
+.b-usecases__item-title {
+  width: 30%;
+  margin: 0 5% 0 0;
+}
+.b-usecases__item-content {
+  width: 60%;
 }
 .b-footer {
   padding: 20px 0;
