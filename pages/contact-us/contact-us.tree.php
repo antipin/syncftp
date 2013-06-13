@@ -1,6 +1,5 @@
 <?php
 return array(
-
     "block" => "b-page",
     "content" => array(
         array(
@@ -10,29 +9,35 @@ return array(
                 "content" => include(DIR_BLOCKS . "/b-nav/b-nav.tree.php") // todo: сделать поиск автоматическим
             ),
         ),
-
         array(
             "block" => "b-title",
             "title" => "Contact information",
             "content" => "Feel free to contact as for any reason!",
         ),
-
         array(
-            "block" => "b-section",
+            "block" => "b-content",
             "content" => array(
                 array(
-                    "block" => "b-paragraph",
-                    "content" => "SyncFTP idea appeared as a solution for personal business needs. No services that can meet the requirements were found those days, so the initial one was created.",
+                    "block" => "b-section",
+                    "content" => array(
+                        array(
+                            "block" => "b-paragraph",
+                            "content" => "SyncFTP idea appeared as a solution for personal business needs. No services that can meet the requirements were found those days, so the initial one was created.",
+                        ),
+                        array(
+                            "block" => "b-paragraph",
+                            "content" => "Feel free to share your thoughts and suggestions and we’ll try to get in touch as soon as possible.",
+                        ),
+                    ),
                 ),
-                array(
-                    "block" => "b-paragraph",
-                    "content" => "Feel free to share your thoughts and suggestions and we’ll try to get in touch as soon as possible.",
-                ),
-            )
+            ),
         ),
-
         array(
-            "block" => "b-footer"
+            "block" => "b-footer",
+            "content" => array(
+                "block" => "b-nav",
+                "content" => include(DIR_BLOCKS . "/b-nav/b-nav.tree.php") // todo: сделать поиск автоматическим
+            ),
         ),
     ),
 );

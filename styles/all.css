@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,200);
 
 @import url(http://fonts.googleapis.com/css?family=Pontano+Sans);
+/* Variables */
 /* Common */
 /*! normalize.css v1.1.1 | MIT License | git.io/normalize */
 /* ==========================================================================
@@ -1286,17 +1287,6 @@ select,
 textarea {
   color: #222;
 }
-/* #4183C4 */
-html,
-body {
-  min-height: 100%;
-}
-body {
-  min-width: 960px;
-  position: relative;
-  font-size: 1em;
-  line-height: 1.4;
-}
 section {
   padding: 30px 0;
 }
@@ -1317,12 +1307,16 @@ section {
   background-repeat: no-repeat;
 }
 /* Blocks */
+html {
+  height: 100%;
+}
 .b-page {
   min-width: 980px;
+  min-height: 100%;
   position: relative;
   font-size: 1em;
   line-height: 1.4;
-  background-color: #F8F8F8;
+  background-color: #F5F5F5;
 }
 .b-header {
   background-image: url("/blocks/b-header/img/bg-logo.png");
@@ -1369,6 +1363,9 @@ section {
 .b-title .b-title__teaser {
   color: #c5c9cf;
   margin-top: 0.7em;
+}
+.b-content {
+  padding-bottom: 80px;
 }
 .b-list {
   margin: 0.5em 0;
@@ -1420,7 +1417,10 @@ section {
   float: right;
   vertical-align: middle;
 }
-.b-nav-item {
+/**
+ * Header nav
+ */
+.b-header .b-nav-item {
   display: inline-block;
   background-color: rgba(0, 0, 0, 0.2);
   margin-left: 1em;
@@ -1430,15 +1430,32 @@ section {
   text-decoration: none;
   font-size: 16px;
 }
-.b-nav-item:hover,
-.b-nav-item_active_yes {
+.b-header .b-nav-item:hover {
   color: #FFF;
   background-color: rgba(255, 255, 255, 0.2);
 }
-.b-nav-item_type_accent {
+.b-header .b-nav-item_type_accent {
   background-color: transparent;
   font-size: 20px;
   text-decoration: underline;
+}
+/**
+ * Footer nav
+ */
+.b-footer .b-nav-item {
+  display: inline-block;
+  margin-left: 1em;
+  padding-left: 1em;
+  color: #CCC;
+  text-decoration: none;
+  font-size: 13px;
+  border-left: 1px solid #888;
+}
+.b-footer .b-nav-item:first-child {
+  border-left: none;
+}
+.b-footer .b-nav-item:hover {
+  color: #FFF;
 }
 .b-email-trap {
   position: relative;
@@ -1610,8 +1627,13 @@ section {
   width: 60%;
 }
 .b-footer {
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 20px 0;
-  background-color: #242b33;
+  background-color: #555;
 }
 .copyright {
   font-size: 11px;

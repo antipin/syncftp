@@ -23,7 +23,11 @@ return array(
         ),
 
         array(
-            "block" => "b-footer"
+            "block" => "b-footer",
+            "content" => array(
+                "block" => "b-nav",
+                "content" => include(DIR_BLOCKS . "/b-nav/b-nav.tree.php") // todo: сделать поиск автоматическим
+            ),
         ),
     ),
 );

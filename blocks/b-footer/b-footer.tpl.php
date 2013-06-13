@@ -1,9 +1,11 @@
 <footer class="<?= $block["block"] ?>">
     <div class="container">
         <div class="row">
-            <?= $block["content"] ?>
-            <div class="span12 copyright">
+            <div class="span6 copyright">
                 2013 &copy; SyncFTP
+            </div>
+            <div class="span6">
+                <?= $block["content"] ?>
             </div>
         </div>
     </div>
