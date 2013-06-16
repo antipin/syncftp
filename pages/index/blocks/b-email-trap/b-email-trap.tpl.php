@@ -7,11 +7,11 @@
             <span class="b-email-trap__stay-tuned s-no">Stay tuned!</span>
 
             <div class="b-email-trap__item">
-                <input class="b-email-trap__input_type_email" id="email-trap-val" type="email" placeholder="enter your email, and..."/>
+                <input class="input-block-level" id="email-trap-val" type="email" placeholder="enter your email, and..."/>
             </div>
 
             <div class="b-email-trap__item">
-                <button class="b-email-trap__input_type_submit" id="email-trap-btn" >get 99 days for FREE!</button>
+                <button class="btn btn-large btn-block btn-warning" id="email-trap-btn" >get 99 days for FREE!</button>
             </div>
 
             <div class="b-email-trap__item b-email-trap__type_description">
