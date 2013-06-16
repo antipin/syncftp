@@ -13,13 +13,13 @@ return array(
             "block" => "b-content",
             "content" => array(
                 array(
+                    "block" => "b-sync-scheme"
+                ),
+                array(
                     "block" => "b-promo",
                     "content" => array(
                         "block" => "b-email-trap"
                     ),
-                ),
-                array(
-                    "block" => "b-sync-scheme"
                 ),
                 array(
                     "block" => "b-features"
