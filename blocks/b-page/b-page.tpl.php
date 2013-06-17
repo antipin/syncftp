@@ -18,7 +18,7 @@
 
     <script src="/vendor/modernizr/modernizr-2.6.2.min.js"></script>
 </head>
-<body class="<?= $block["block"]?>">
+<body class="<?= $block["classes"] ?>">
 
     <?= $block["content"] ?>
 

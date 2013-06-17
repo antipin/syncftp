@@ -1,4 +1,4 @@
-<section class="<?= $block["block"] ?>">
+<section class="<?= $block["classes"] ?>">
     <div class="container">
         <div class="row">
 

@@ -1,4 +1,4 @@
-<header class="<?= $block["block"] ?>">
+<header class="<?= $block["classes"] ?>">
     <div class="container">
         <div class="row">
             <div class="span12">

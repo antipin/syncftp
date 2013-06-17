@@ -1,3 +1,3 @@
-<nav class="<?= $block["block"] ?>">
+<nav class="<?= $block["classes"] ?>">
     <?= $block["content"] ?>
 </nav>

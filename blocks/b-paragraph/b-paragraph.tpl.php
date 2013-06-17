@@ -1,3 +1,3 @@
-<p class="<?= $block["block"] ?>">
+<p class="<?= $block["classes"] ?>">
     <?= $block["content"] ?>
 </p>

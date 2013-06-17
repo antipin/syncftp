@@ -835,38 +835,6 @@ html {
 .b-list li:before {
   content: '\2014\a0';
 }
-.b-promo {
-  background: #242b33;
-}
-.b-promo h2,
-.b-promo p {
-  color: #FFF;
-}
-.b-promo__left-sidebar,
-.b-promo__right-sidebar {
-  height: 350px;
-}
-.b-promo__left-sidebar {
-  position: relative;
-}
-.b-promo__slogan {
-  padding: 60px 90px 0 0;
-  position: relative;
-  z-index: 2;
-}
-.b-promo__slogan-arrow {
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 350px;
-  width: 31px;
-  background: url("/pages/index/blocks/b-promo/img/arrow.png") no-repeat 0 50%;
-  z-index: 0;
-}
-.b-promo__right-sidebar {
-  position: relative;
-}
 .b-nav {
   display: inline-block;
   float: right;
@@ -912,6 +880,51 @@ html {
 }
 .b-footer .b-nav-item:hover {
   color: #FFF;
+}
+.b-footer {
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 0;
+  background-color: #555;
+}
+.copyright {
+  font-size: 12px;
+  color: #BBB;
+}
+.b-promo {
+  background: #242b33;
+}
+.b-promo h2,
+.b-promo p {
+  color: #FFF;
+}
+.b-promo__left-sidebar,
+.b-promo__right-sidebar {
+  height: 350px;
+}
+.b-promo__left-sidebar {
+  position: relative;
+}
+.b-promo__slogan {
+  padding: 60px 90px 0 0;
+  position: relative;
+  z-index: 2;
+}
+.b-promo__slogan-arrow {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 350px;
+  width: 31px;
+  background: url("/pages/index/blocks/b-promo/img/arrow.png") no-repeat 0 50%;
+  z-index: 0;
+}
+.b-promo__right-sidebar {
+  position: relative;
 }
 .b-email-trap {
   position: relative;
@@ -1085,17 +1098,4 @@ html {
 }
 .b-usecases__item-content {
   width: 60%;
-}
-.b-footer {
-  height: 30px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px 0;
-  background-color: #555;
-}
-.copyright {
-  font-size: 12px;
-  color: #BBB;
 }

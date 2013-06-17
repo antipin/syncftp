@@ -85,8 +85,18 @@ class Page {
                 throw new Exception("Node " . $nodeDecl["name"] . " has no declaration (path: " . $nodeTplPath . ")");
             }
 
+            // Формируем массив CSS-классов
+            $classes = array();
+            if (isset($node["cls"])) $classes = $node["cls"];
+            if ($isNodeElem) {
+                $classes[] = $node["block"] . "__" . $node["elem"];
+            } else {
+                $classes[] = $node["block"];
+            }
+
             ob_start();
             $block = $node;
+            $block["classes"] = implode(" ", $classes);
             include $nodeTplPath;
             $output = ob_get_clean();
         }

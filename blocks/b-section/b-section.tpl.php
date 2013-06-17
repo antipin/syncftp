@@ -1,9 +1,14 @@
-<section class="<?= $block["block"] ?>">
+<?
+if (!$block["columns"]) {
+    $content = '<div class="span12">' . $block["content"] . '</div>';
+} else {
+    $content = $block["content"];
+}
+?>
+<section class="<?= $block["classes"] ?>">
     <div class="container">
         <div class="row">
-            <div class="span12">
-                <?= $block["content"] ?>
-            </div>
+            <?= $content ?>
         </div>
     </div>
 </section>

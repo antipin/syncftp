@@ -1,4 +1,4 @@
-<footer class="<?= $block["block"] ?>">
+<footer class="<?= $block["classes"] ?>">
     <div class="container">
         <div class="row">
             <div class="span6 copyright">
