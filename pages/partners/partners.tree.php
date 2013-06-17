@@ -19,7 +19,31 @@ return array(
 
         array(
             "block" => "b-section",
-            "content" => "Our service is definitely built upon high-quality servers and broadband internet, so if you would like to have your company logo to be proudly pinned on the service web pages, please feel free to contact us on that matter."
+            "content" => array(
+                "block" => "b-section",
+                "columns" => true,
+                "content" => array(
+                    array(
+                        "block" => "b-section",
+                        "elem" => "column",
+                        "cls" => array("span7"),
+                        "content" => array(
+                            array(
+                                "block" => "b-paragraph",
+                                "content" => "Our service is definitely built upon high-quality servers and broadband internet, so if you would like to have your company logo to be proudly pinned on the service web pages, please feel free to contact us on that matter.",
+                            ),
+                        ),
+                    ),
+                    array(
+                        "block" => "b-section",
+                        "elem" => "column",
+                        "cls" => array("span5"),
+                        "content" => array(
+                            "block" => "b-contact-form",
+                        ),
+                    ),
+                ),
+            ),
         ),
 
         array(

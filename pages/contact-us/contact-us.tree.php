@@ -40,9 +40,10 @@ return array(
                             "block" => "b-section",
                             "elem" => "column",
                             "cls" => array("span5"),
-                            "content" => "Contact form will be here.",
-                        )
-
+                            "content" => array(
+                                "block" => "b-contact-form",
+                            ),
+                        ),
                     ),
                 ),
             ),
