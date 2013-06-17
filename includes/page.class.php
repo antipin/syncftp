@@ -52,30 +52,46 @@ class Page {
     }
 
 
-    private function _build_node_content($block) {
+    private function _build_node_content($node) {
 
-        if (isset($block["block"])) {
-            // Шаблон для блока существует
-            if (array_key_exists($block["block"], $this->_blocks)) {
-                $blockTplPath = $this->_blocks[$block["block"]] . "/" . $block["block"] . self::BLOCK_TPL_EXTENSION;
+        if (isset($node["block"])) {
+
+            $isNodeElem = isset($node["block"]) && isset($node["elem"]);
+
+            // Получаем декларацию для блока
+            $blockDecl = isset($this->_blocks[$node["block"]])
+                ? $this->_blocks[$node["block"]]
+                : $this->_blocks[BLOCK_DEFAULT_TPL];
+
+
+            if ($isNodeElem) {
+                // Ищем декларацию для элемента
+                $elemDecl = isset($blockDecl["elems"][$node["elem"]])
+                    ? $blockDecl["elems"][$node["elem"]]
+                    : $this->_blocks[self::BLOCK_DEFAULT_TPL]["elems"]["default"];
+
+                // Если декларация элемента существует
+                if ($elemDecl) {
+                    $nodeTplPath = $elemDecl["path"] . "/" . $blockDecl["name"] . "__" . $elemDecl["name"] . self::BLOCK_TPL_EXTENSION;
+                }
             }
 
-            // Шаблон для блока не найден
-            if (!file_exists($blockTplPath)) {
-                $blockTplPath = implode("/", array(
-                    DIR_BLOCKS,
-                    self::BLOCK_DEFAULT_TPL,
-                    self::BLOCK_DEFAULT_TPL . ".tpl.php",
-                ));
-            }
+            $nodeDecl = $isNodeElem ? $elemDecl : $blockDecl;
 
+            $nodeTplPath = $nodeDecl["path"] . "/" . $nodeDecl["name"] . self::BLOCK_TPL_EXTENSION;
+
+            // Шаблон для дефолтного блока (блок не найден)
+            if (!file_exists($nodeTplPath)) {
+                throw new Exception("Node " . $nodeDecl["name"] . " has no declaration (path: " . $nodeTplPath . ")");
+            }
 
             ob_start();
-            include $blockTplPath;
+            $block = $node;
+            include $nodeTplPath;
             $output = ob_get_clean();
         }
         else {
-            $output = $block["content"];
+            $output = $node["content"];
         }
 
         return $output;
@@ -93,6 +109,11 @@ class Page {
             $node = array(
                 "content" => $node
             );
+        }
+
+        // Пробрасываем в ноды, являющиеся элементами, название родительского блока
+        if (!isset($node["block"]) && isset($node["elem"])) {
+            $node["block"] = $node["parent"]["block"];
         }
 
         if (isset($node["content"]) && is_array($node["content"]) && !isset($node["content"]["_build"])) {
@@ -150,11 +171,29 @@ class Page {
         $destinations = $this->_get_blocks_destinations();
 
         foreach($destinations as $destination) {
-            $dirList = glob($destination . "/*", GLOB_ONLYDIR);
-            foreach($dirList as $dir) {
-                $explodedDir = explode("/", $dir);
-                $blockName = array_pop($explodedDir);
-                $blocks[$blockName] = $dir;
+            $blocksDirList = glob($destination . "/*", GLOB_ONLYDIR);
+            foreach($blocksDirList as $blockDir) {
+
+                $explodedBlockDir = explode("/", $blockDir);
+                $blockName = array_pop($explodedBlockDir);
+
+                $blocks[$blockName]["path"] = $blockDir;
+                $blocks[$blockName]["name"] = $blockName;
+                $blocks[$blockName]["elems"] = array();
+
+                $elemsDirList = glob($blockDir . "/*", GLOB_ONLYDIR);
+
+                forEach($elemsDirList as $elemDir) {
+
+                    $explodedElemDir = explode("/", $elemDir);
+                    $elemName = array_pop($explodedElemDir);
+
+                    $blocks[$blockName]["elems"][$elemName] = array(
+                        "path" => $elemDir,
+                        "name" => $elemName,
+                    );
+                }
+
             }
         }
         return $blocks;
