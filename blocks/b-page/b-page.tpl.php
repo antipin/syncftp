@@ -11,6 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Sync FTP - direct fast data transfer between remote servers.</title>
+    <meta name="msvalidate.01" content="2FF1BA10E19C357BDCA35176C43E22F0" />
     <meta name="description" content="Direct fast data transfer between remote servers. FTP to FTP transfer.">
     <meta name="viewport" content="width=device-width">
 
