@@ -1,15 +1,14 @@
 <?php
 $email = @$_POST["email"];
-//$email = "ashlygin@gmail.com";
  
 if (filter_var($email, FILTER_VALIDATE_EMAIL))
 {
 	class MySQL
 	{
-		public static $server = "localhost"; //"216.172.186.233";
-		public static $login = "labs42_syncftp";
-		public static $password = "Tt7ikhKNxhpn";
-		public static $database = "labs42_syncftp";
+		public static $server = "localhost";
+		public static $login = "login";
+		public static $password = "password";
+		public static $database = "database";
 	}	
 		
 	$conn = mysql_connect(Mysql::$server, MySQL::$login, MySQL::$password) or die ("Connection refused");
